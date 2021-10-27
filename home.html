@@ -1,0 +1,146 @@
+<!-- <?php
+session_start();
+?> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://pixabay.com/images/search/rent/">
+    <link rel="stylesheet" href="style2.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: linear-gradient(rgba(0, 0, 50, 0.5), rgba(0, 0, 50, 0.5)), url('https://cdn.pixabay.com/photo/2016/01/26/22/29/open-house-1163353_960_720.jpg');
+            background-size: cover;
+            background-position: center;
+            width: 90vw;
+            height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            font-style: italic;
+            letter-spacing: 3px;
+            font-size: 44px;
+            /* font-weight: bold; */
+            color: #fff;
+        }
+
+        .bg1 {
+            border: 2px solid #fff;
+            left: 45vw;
+            position: relative;
+            top: 50px;
+            height: 82vh;
+            width: 50vw;
+            background: linear-gradient(rgba(209, 223, 19, 0.5), rgba(0, 0, 50, 0.5));
+        }
+
+        .c1 {
+            background: #fff;
+            border: 1px solid #fff;
+            border-radius: 25px;
+            width: 48vw;
+            height: 70vh;
+            left: 20px;
+            top: 20px;
+            margin-right: 10px;
+            position: relative;
+        }
+
+        #cfile {
+            border-radius: 10px;
+        }
+
+        input {
+            top: 10px;
+            left: 5px;
+            position: relative;
+        }
+
+        h5 {
+            width: 50vw;
+            overflow: hidden;
+            text-align: center;
+            background: blanchedalmond;
+            padding: 10px;
+        }
+
+        .btn-primary {
+            bottom: 7vh;
+            top: 86vh;
+            left: 48vw;
+            position: fixed;
+            padding: 10px;
+        }
+
+        #p1 {
+            display: none;
+        }
+
+        input {
+            margin-bottom: 5px;
+        }
+
+        #img-preview img {
+            width: 30vw;
+            height: 29vh;
+            margin-bottom: 20px;
+        }
+    </style>
+    <script>
+        function saveimg() {
+            var pic = document.getElementById("img-preview");
+            var src1 = pic.getElementsByTagName("img")[0].src;
+            // console.log(src);
+            var p = document.getElementById("p1");
+            p.value = src1;
+            p.style.display = "none";
+            console.log(p.value);
+            console.log(src1.length);
+        }
+    </script>
+</head>
+
+<body>
+    <!-- style="background:url('https://cdn.pixabay.com/photo/2016/01/26/22/29/open-house-1163353_960_720.jpg');background-size:cover;background-position:center;background-repeat: no-repeat;"> -->
+    <h1>Tenants Choice</h1>
+    <div class="bg1">
+        <h5>Upload details</h5>
+        <!-- <button class="btn btn-primary" onclick="addcard()">Add Card</button> -->
+        <div class="row">
+            <div class="col-md-4 c1" id="c1">
+                <form action="saveimg.php" method="POST">
+                    <div>
+                        <div id="img-preview"></div>
+                        <input type="file" id="cfile" name="choose-file" accept="image/*" multiple="multiple" />
+                        <input type="text" id="p1" name="url" required><br>
+                        <label for="name">Contact Name</label>
+                        <input name="name" type="text" oninput="saveimg()" required><br>
+                        <label for="phone">Contact No. &nbsp;&nbsp;&nbsp;</label>
+                        <input name="phone" type="tel" required><br>
+                        <label for="location">Location &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <input name="location" type="text" required><br>
+                        <label for="number">Rooms
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <input name="number" type="number" required><br>
+                        <label for="cost">Rent
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <input name="cost" type="number" required><br>
+                    </div>
+                    <input type="submit" value="upload" onclick="alert('Uploaded successfully')"
+                        class="btn btn-primary">
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
